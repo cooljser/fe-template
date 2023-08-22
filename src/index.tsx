@@ -5,4 +5,9 @@ import {HashRouter} from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<HashRouter><Routes /></HashRouter>);
+
+root.render(
+  <HashRouter>
+    <Routes />
+  </HashRouter>
+);
