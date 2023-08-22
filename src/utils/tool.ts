@@ -11,3 +11,9 @@ export function getQueryVariable(variable = '', url = window.location.search || 
   }
   return (false);
 }
+
+export function getRandom() {
+  const randomBuffer = new Uint32Array(1);
+  window.crypto.getRandomValues(randomBuffer);
+  return randomBuffer[0] / (0xffffffff + 1);
+}
