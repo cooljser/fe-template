@@ -474,7 +474,11 @@ module.exports = function (webpackEnv) {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: {
+                    mode: 'local',
+                    localIdentName: '[local]_[hash:base64:5]'
+                  }
                 },
                 'less-loader'
               ),
@@ -484,7 +488,7 @@ module.exports = function (webpackEnv) {
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true
             },
-            // Adds support for CSS Modules, but using LESS 
+            // Adds support for CSS Modules, but using LESS
             // using the extension .module.scss or .module.less
             {
               test: lessModuleRegex,
@@ -492,8 +496,10 @@ module.exports = function (webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent
+                  modules: {
+                    mode: 'local',
+                    localIdentName: '[local]_[hash:base64:5]'
+                  }
                 },
                 'less-loader'
               )

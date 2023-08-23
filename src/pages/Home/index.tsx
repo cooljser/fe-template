@@ -1,8 +1,8 @@
 import * as React from 'react';
-import './index.less';
+import style from './index.less';
 
 const Home = () => {
-  return <div className='home'>Home</div>;
+  return <div className={style.home}>Home</div>;
 };
 
 export default Home;
