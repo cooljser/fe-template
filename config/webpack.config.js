@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -492,6 +490,7 @@ module.exports = function (webpackEnv) {
             // using the extension .module.scss or .module.less
             {
               test: lessModuleRegex,
+              exclude: [/^src\/index.less$/],
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
