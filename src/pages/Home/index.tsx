@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Button} from 'antd';
-import service from 'src/services/backendService';
+import service from '~/services';
 import style from './index.less';
 
 const Home = () => {
