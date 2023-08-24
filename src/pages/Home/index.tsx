@@ -3,7 +3,10 @@ import {useNavigate} from 'react-router-dom';
 import {Button} from 'antd';
 import service from '~/services';
 import style from './index.less';
+import classNames from 'classnames/bind';
 import {inject, observer} from 'mobx-react';
+
+const cx = classNames.bind(style);
 
 const Home = ({testStore}: any) => {
   const {count, setCount} = testStore;
@@ -31,8 +34,12 @@ const Home = ({testStore}: any) => {
     });
   }, []);
 
+  const className = cx({
+    home: true,
+  });
+
   return (
-    <div className={style.home}>
+    <div className={className}>
       <h1>Home</h1>
       <button onClick={toAbout}>toAbout</button>
       <br />

@@ -1,6 +1,10 @@
-import {observable, action} from 'mobx';
+import {observable, action, makeObservable} from 'mobx';
 
 class TestStore {
+  constructor() {
+    makeObservable(this);
+  }
+
   @observable count = 0;
 
   @action setCount = (count: number) => {
