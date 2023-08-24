@@ -17,3 +17,7 @@ export function getRandom() {
   window.crypto.getRandomValues(randomBuffer);
   return randomBuffer[0] / (0xffffffff + 1);
 }
+
+export function fisrtToLowercase(str: string) {
+  return str.charAt(0).toLowerCase() + str.substr(1);
+}
