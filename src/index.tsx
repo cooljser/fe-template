@@ -3,16 +3,21 @@ import {createRoot} from 'react-dom/client';
 import Routes from './routes';
 import {HashRouter} from 'react-router-dom';
 import {Provider} from 'mobx-react';
-import './index.less';
 import stores from './stores';
+import './i18n';
+import './index.less';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-root.render(
-  <HashRouter>
-    <Provider {...stores}>
-      <Routes />
-    </Provider>
-  </HashRouter>
-);
+const App = () => {
+  return (
+    <HashRouter>
+      <Provider {...stores}>
+        <Routes />
+      </Provider>
+    </HashRouter>
+  );
+}
+
+root.render(<App />);

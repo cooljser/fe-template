@@ -5,11 +5,13 @@ import service from '~/services';
 import style from './index.less';
 import classNames from 'classnames/bind';
 import {inject, observer} from 'mobx-react';
+import useI18n from '~/hooks/useI18n';
 
 const cx = classNames.bind(style);
 
 const Home = ({testStore}: any) => {
   const {count, setCount} = testStore;
+  const i18n = useI18n();
 
   const navigate = useNavigate();
 
@@ -35,12 +37,12 @@ const Home = ({testStore}: any) => {
   }, []);
 
   const className = cx({
-    home: true,
+    home: true
   });
 
   return (
     <div className={className}>
-      <h1>Home</h1>
+      <h1>{i18n('Home')}</h1>
       <button onClick={toAbout}>toAbout</button>
       <br />
       <h2>{count}</h2>
